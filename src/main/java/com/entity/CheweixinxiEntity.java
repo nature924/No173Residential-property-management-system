@@ -1,0 +1,276 @@
+package com.entity;
+
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.lang.reflect.InvocationTargetException;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.apache.commons.beanutils.BeanUtils;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.enums.IdType;
+
+
+/**
+ * 车位信息
+ * 数据库通用操作实体类（普通增删改查）
+ * @author 
+ * @email 
+ * @date 2023-01-26 18:34:57
+ */
+@TableName("cheweixinxi")
+public class CheweixinxiEntity<T> implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+
+	public CheweixinxiEntity() {
+		
+	}
+	
+	public CheweixinxiEntity(T t) {
+		try {
+			BeanUtils.copyProperties(this, t);
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 主键id
+	 */
+	@TableId
+	private Long id;
+	/**
+	 * 车位编号
+	 */
+					
+	private String cheweibianhao;
+	
+	/**
+	 * 车位名称
+	 */
+					
+	private String cheweimingcheng;
+	
+	/**
+	 * 图片
+	 */
+					
+	private String tupian;
+	
+	/**
+	 * 车位位置
+	 */
+					
+	private String cheweiweizhi;
+	
+	/**
+	 * 状态
+	 */
+					
+	private String zhuangtai;
+	
+	/**
+	 * 价格
+	 */
+					
+	private Float jiage;
+	
+	/**
+	 * 面积
+	 */
+					
+	private String mianji;
+	
+	/**
+	 * 实时时间
+	 */
+				
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat 		
+	private Date shishishijian;
+	
+	/**
+	 * 详细介绍
+	 */
+					
+	private String xiangxijieshao;
+	
+	/**
+	 * 最近点击时间
+	 */
+				
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat 		
+	private Date clicktime;
+	
+	/**
+	 * 点击次数
+	 */
+					
+	private Integer clicknum;
+	
+	
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat
+	private Date addtime;
+
+	public Date getAddtime() {
+		return addtime;
+	}
+	public void setAddtime(Date addtime) {
+		this.addtime = addtime;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	/**
+	 * 设置：车位编号
+	 */
+	public void setCheweibianhao(String cheweibianhao) {
+		this.cheweibianhao = cheweibianhao;
+	}
+	/**
+	 * 获取：车位编号
+	 */
+	public String getCheweibianhao() {
+		return cheweibianhao;
+	}
+	/**
+	 * 设置：车位名称
+	 */
+	public void setCheweimingcheng(String cheweimingcheng) {
+		this.cheweimingcheng = cheweimingcheng;
+	}
+	/**
+	 * 获取：车位名称
+	 */
+	public String getCheweimingcheng() {
+		return cheweimingcheng;
+	}
+	/**
+	 * 设置：图片
+	 */
+	public void setTupian(String tupian) {
+		this.tupian = tupian;
+	}
+	/**
+	 * 获取：图片
+	 */
+	public String getTupian() {
+		return tupian;
+	}
+	/**
+	 * 设置：车位位置
+	 */
+	public void setCheweiweizhi(String cheweiweizhi) {
+		this.cheweiweizhi = cheweiweizhi;
+	}
+	/**
+	 * 获取：车位位置
+	 */
+	public String getCheweiweizhi() {
+		return cheweiweizhi;
+	}
+	/**
+	 * 设置：状态
+	 */
+	public void setZhuangtai(String zhuangtai) {
+		this.zhuangtai = zhuangtai;
+	}
+	/**
+	 * 获取：状态
+	 */
+	public String getZhuangtai() {
+		return zhuangtai;
+	}
+	/**
+	 * 设置：价格
+	 */
+	public void setJiage(Float jiage) {
+		this.jiage = jiage;
+	}
+	/**
+	 * 获取：价格
+	 */
+	public Float getJiage() {
+		return jiage;
+	}
+	/**
+	 * 设置：面积
+	 */
+	public void setMianji(String mianji) {
+		this.mianji = mianji;
+	}
+	/**
+	 * 获取：面积
+	 */
+	public String getMianji() {
+		return mianji;
+	}
+	/**
+	 * 设置：实时时间
+	 */
+	public void setShishishijian(Date shishishijian) {
+		this.shishishijian = shishishijian;
+	}
+	/**
+	 * 获取：实时时间
+	 */
+	public Date getShishishijian() {
+		return shishishijian;
+	}
+	/**
+	 * 设置：详细介绍
+	 */
+	public void setXiangxijieshao(String xiangxijieshao) {
+		this.xiangxijieshao = xiangxijieshao;
+	}
+	/**
+	 * 获取：详细介绍
+	 */
+	public String getXiangxijieshao() {
+		return xiangxijieshao;
+	}
+	/**
+	 * 设置：最近点击时间
+	 */
+	public void setClicktime(Date clicktime) {
+		this.clicktime = clicktime;
+	}
+	/**
+	 * 获取：最近点击时间
+	 */
+	public Date getClicktime() {
+		return clicktime;
+	}
+	/**
+	 * 设置：点击次数
+	 */
+	public void setClicknum(Integer clicknum) {
+		this.clicknum = clicknum;
+	}
+	/**
+	 * 获取：点击次数
+	 */
+	public Integer getClicknum() {
+		return clicknum;
+	}
+
+}
